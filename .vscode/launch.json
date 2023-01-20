@@ -19,7 +19,11 @@
             "module": "pytest",
             "justMyCode": true,
             "args": [
-                "-v"
+                "-v",
+                // "-m task_a",
+                // "-m not task_a",
+                // "-m task_a or task_b",
+                "-s",
             ]
         }
     ]

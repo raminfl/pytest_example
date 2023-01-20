@@ -5,8 +5,9 @@ import pytest
 from services.main import (add_two_nums_plus_constant, increment_num,
                            silly_get_request)
 
+# pytestmark = [pytest.mark.task_a, pytest.mark.task_b] # To apply marks at the module level, use the pytestmark global variable
 
-# @pytest.mark.skip(reason='was tested')
+# @pytest.mark.skip(reason='was tested') # use skip marker if you wish to skip a test
 @pytest.mark.parametrize('num, expected_res', [(2, 4), (5, 7)])
 @mock.patch('services.main.get_number_one') # mocking get_number_one function
 def test_increment_num(mock_get_number_one, num, expected_res):
@@ -24,7 +25,7 @@ def test_add_two_nums_plus_four(num1, num2, expected_res):
     res = add_two_nums_plus_constant(num1, num2)
     assert res==expected_res
 
-
+# @pytest.mark.task_a # custom marker defined in pytest.ini, use -m to specify in launch.json
 @mock.patch('services.main.time.time')
 @mock.patch('services.main.random.randint')
 @mock.patch('services.main.requests.get')
