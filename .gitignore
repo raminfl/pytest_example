@@ -1,4 +1,25 @@
-/.DS_Store
-/.pytest_cache
-/__pycache__
-/venv
+venv/
+.venv/
+
+# IDE
+.idea
+
+# Python
+__pycache__
+*.pyc
+.pytest_cache
+algo/algo.egg-info/
+build/
+**/algo.egg-info/
+
+# environment and local files
+*.local.*
+*.env
+firebase.dev.json
+
+# toolbox files
+*.ipynb
+
+# OS generated files #s
+.DS_Store
+**/.DS_Storess
