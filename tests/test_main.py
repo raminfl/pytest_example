@@ -8,18 +8,18 @@ from services.main import (add_two_nums_plus_constant, increment_num,
 # pytestmark = [pytest.mark.task_a, pytest.mark.task_b] # To apply marks at the module level, use the pytestmark global variable
 
 # @pytest.mark.skip(reason='was tested') # use skip marker if you wish to skip a test
-@pytest.mark.parametrize('num, expected_res', [(2, 4), (5, 7)])
+@pytest.mark.parametrize(('num', 'expected_res'), ((2, 4), (5, 7)))
 @mock.patch('services.main.get_number_one') # mocking get_number_one function
 def test_increment_num(mock_get_number_one, num, expected_res):
     mock_get_number_one.return_value = 2
     res = increment_num(num)
     assert res==expected_res
 
-@pytest.mark.parametrize('num1, num2, expected_res',[
+@pytest.mark.parametrize(('num1', 'num2', 'expected_res'),(
         (2,4,10),
         (1,1,6),
         (2,10,16)
-        ])
+        ))
 @mock.patch('services.main.CONSTANT', 4) # mocking a variable
 def test_add_two_nums_plus_four(num1, num2, expected_res):
     res = add_two_nums_plus_constant(num1, num2)
@@ -41,5 +41,3 @@ def test_silly_get_request(mock_get_req, mock_randint, mock_time):
     mock_get_req.return_value = mock_requests_return
     res = silly_get_request()
     assert res == test_parameters
-
-
